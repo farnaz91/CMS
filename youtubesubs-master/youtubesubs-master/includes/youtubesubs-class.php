@@ -33,18 +33,22 @@
   
     public function form( $instance ) {
 
-      //adding the variable to pass the parameter
-      $title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( 'Youtube Subscriptions', 'yts_domain' ); 
+      //addded the layout variable to be able to pass the parametere
+      $paramlayout = ! empty( $instance['layout'] ) ? $instance['layout'] : esc_html__( 'default', 'yts_domain' ); 
+     
 
       //added the variable to pass the variable 
       
-      $channel = ! empty( $instance['channel'] ) ? $instance['channel'] : esc_html__( 'jamescookunibrisbane', 'yts_domain' ); 
+      $paramchannel = ! empty( $instance['channel'] ) ? $instance['channel'] : esc_html__( 'jamescookunibrisbane', 'yts_domain' );
 
-      //addded the layout variable to be able to pass the parametere
-      $layout = ! empty( $instance['layout'] ) ? $instance['layout'] : esc_html__( 'default', 'yts_domain' ); 
+       //adding the variable to pass the parameter
+      $paramtitle = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( 'Youtube Subscriptions', 'yts_domain' ); 
+ 
+
+      
 
       //added the counts parameter
-      $count = ! empty( $instance['count'] ) ? $instance['count'] : esc_html__( 'default', 'yts_domain' ); 
+      $paramcount = ! empty( $instance['count'] ) ? $instance['count'] : esc_html__( 'default', 'yts_domain' ); 
   
       ?>
       
@@ -61,7 +65,7 @@
           id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" 
           name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" 
           type="text" 
-          value="<?php echo esc_attr( $title ); ?>">
+          value="<?php echo esc_attr( $paramtitle ); ?>">
       </p>
 
       
@@ -75,7 +79,7 @@
           id="<?php echo esc_attr( $this->get_field_id( 'channel' ) ); ?>" 
           name="<?php echo esc_attr( $this->get_field_name( 'channel' ) ); ?>" 
           type="text" 
-          value="<?php echo esc_attr( $channel ); ?>">
+          value="<?php echo esc_attr( $paramchannel ); ?>">
       </p>
 
      
@@ -88,10 +92,10 @@
           class="widefat" 
           id="<?php echo esc_attr( $this->get_field_id( 'layout' ) ); ?>" 
           name="<?php echo esc_attr( $this->get_field_name( 'layout' ) ); ?>">
-          <option value="default" <?php echo ($layout == 'default') ? 'selected' : ''; ?>>
+          <option value="default" <?php echo ($paramlayout == 'default') ? 'selected' : ''; ?>>
             Default
           </option>
-          <option value="full" <?php echo ($layout == 'full') ? 'selected' : ''; ?>>
+          <option value="full" <?php echo ($paramlayout == 'full') ? 'selected' : ''; ?>>
             Full
           </option>
         </select>
@@ -107,10 +111,10 @@
           class="widefat" 
           id="<?php echo esc_attr( $this->get_field_id( 'count' ) ); ?>" 
           name="<?php echo esc_attr( $this->get_field_name( 'count' ) ); ?>">
-          <option value="default" <?php echo ($count == 'default') ? 'selected' : ''; ?>>
+          <option value="default" <?php echo ($paramcount == 'default') ? 'selected' : ''; ?>>
             Default
           </option>
-          <option value="hidden" <?php echo ($count == 'hidden') ? 'selected' : ''; ?>>
+          <option value="hidden" <?php echo ($paramcount == 'hidden') ? 'selected' : ''; ?>>
             Hidden
           </option>
         </select>
